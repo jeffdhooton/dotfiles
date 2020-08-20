@@ -1,3 +1,17 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "graphql", "html", "yaml",  "json"]
+  "html.autoClosingTags": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "php",
+    "blade",
+    "vue"
+  ]
 }
