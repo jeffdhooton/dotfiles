@@ -41,5 +41,4 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-
+autocmd BufWritePre *js,*ts,*jsx,*tsx,*.graphql,*.json :Prettier
