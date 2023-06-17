@@ -58,6 +58,7 @@ bindkey -r '^g'
 bindkey -s '^g' clear-screen
 
 export PATH="/home/jeff/.cargo/bin:$PATH"
+export PATH="/home/jeff/workspace/Odin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/jeff/.config/local/share/pnpm"

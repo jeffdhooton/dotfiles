@@ -4,6 +4,7 @@
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
+rm -rf "$XDG_CONFIG_HOME/nvim/lua"
 ln -s "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim/lua"
 
 ### X11 ###
@@ -13,6 +14,10 @@ ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
 ### i3 ###
 rm -rf "$XDG_CONFIG_HOME/i3"
 ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
+
+### polkit ###
+rm -rf "$XDG_CONFIG_HOME/systemd"
+ln -s "$DOTFILES/systemd" "$XDG_CONFIG_HOME"
 
 ## polybar
 rm -rf "$XDG_CONFIG_HOME/polybar"
