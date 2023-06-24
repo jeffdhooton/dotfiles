@@ -7,8 +7,8 @@ vim.keymap.set('i', 'jk', '<esc>', { silent = true })
 vim.keymap.set('n', '<leader>tt', ':BufOnly<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ss', ':wa<CR>', { silent = true })
 vim.keymap.set('n', 'ygv<esc>', 'y', { silent = true })
-vim.keymap.set('n', 'H', 'A<esc>', { silent = true })
-vim.keymap.set('n', 'L', 'I<esc>', { silent = true })
+vim.keymap.set('n', 'L', 'A<esc>', { silent = true })
+vim.keymap.set('n', 'H', 'I<esc>', { silent = true })
 
 vim.keymap.set('n', '<leader>m', '%', { silent = true })
 

@@ -12,6 +12,11 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+
+-- line numbering
+vim.o.number = true;
+vim.o.relativenumber = true;
+
 vim.loop.fs_write(2, "\27Ptmux;\27\27]11;?\7\27\\", -1, nil)
 
 return {}
