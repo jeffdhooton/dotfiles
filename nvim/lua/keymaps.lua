@@ -6,12 +6,32 @@ vim.keymap.set('i', 'kj', '<esc>', { silent = true })
 vim.keymap.set('i', 'jk', '<esc>', { silent = true })
 vim.keymap.set('n', '<leader>tt', ':BufOnly<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ss', ':wa<CR>', { silent = true })
-vim.keymap.set('n', 'ygv<esc>', 'y', { silent = true })
+vim.keymap.set('n', 'y`]', 'y', { silent = true })
 vim.keymap.set('n', 'L', 'A<esc>', { silent = true })
 vim.keymap.set('n', 'H', 'I<esc>', { silent = true })
 
-vim.keymap.set('n', '<leader>m', '%', { silent = true })
+-- Copilot
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+  ["lua"] = false,
+  ["javascript"] = true,
+  ["javascriptreact"] = true,
+  ["typescript"] = true,
+  ["typescriptreact"] = true,
+  ["vue"] = true,
+  ["go"] = true,
+  ["c"] = true,
+  ["c++"] = true,
+  ["c#"] = true,
+  ["rust"] = true,
+  ["python"] = true,
+}
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
+vim.keymap.set('n', '<leader>m', '%', { silent = true })
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()

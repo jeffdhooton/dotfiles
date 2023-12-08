@@ -21,11 +21,17 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- { 'j-hui/fidget.nvim', tag = 'legacy' },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
 
+      {
+        'simrat39/inlay-hints.nvim',
+        config = function()
+          require('inlay-hints').setup()
+        end,
+      },
     },
   },
 
@@ -69,6 +75,7 @@ require('lazy').setup({
 
   {
     'catppuccin/nvim',
+    lazy = false,
     priority = 1000,
     config = function()
       require('catppuccin').setup({
@@ -76,6 +83,34 @@ require('lazy').setup({
       })
       vim.cmd.colorscheme 'catppuccin'
     end
+  },
+
+  {
+    "adalessa/laravel.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-dotenv",
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+    keys = {
+      { "<leader>la", ":Laravel artisan<cr>" },
+      { "<leader>lr", ":Laravel routes<cr>" },
+      { "<leader>lm", ":Laravel related<cr>" },
+      {
+        "<leader>lt",
+        function()
+          require("laravel.tinker").send_to_tinker()
+        end,
+        mode = "v",
+        desc = "Laravel Application Routes",
+      },
+    },
+    event = { "VeryLazy" },
+    config = function()
+      require("laravel").setup()
+      require("telescope").load_extension "laravel"
+    end,
   },
 
   -- {
@@ -95,6 +130,16 @@ require('lazy').setup({
   --     vim.cmd.colorscheme('nightly')
   --   end
   -- },
+  --
+  {
+    'arkav/lualine-lsp-progress',
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'catppuccin',
+      }
+    }
+  },
 
   {
     -- Set lualine as statusline
@@ -103,9 +148,14 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'onedark',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
+      },
+      sections = {
+        lualine_c = {
+          'lsp_progress',
+        },
       },
     },
   },
@@ -126,6 +176,22 @@ require('lazy').setup({
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+
+  -- Harpoon
+  -- {
+  --   'theprimeagen/harpoon',
+  --   config = function()
+  --     require('harpoon').setup({
+  --       settings = {
+  --         save_on_toggle = true,
+  --         save_on_change = true,
+  --       },
+  --       menu = {
+  --         width = vim.api.nvim_win_get_width(0) - 4,
+  --       },
+  --     })
+  --   end
+  -- },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -148,6 +214,14 @@ require('lazy').setup({
     },
     build = ":TSUpdate",
   },
+
+  {
+    'github/copilot.vim',
+    config = function()
+    end
+  },
+
+  { 'lvimuser/lsp-inlayhints.nvim', opts = {} },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.

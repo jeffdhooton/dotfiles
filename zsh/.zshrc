@@ -59,6 +59,8 @@ bindkey -s '^g' clear-screen
 
 export PATH="/home/jeff/.cargo/bin:$PATH"
 export PATH="$HOME/go:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/jeff/.config/local/share/pnpm"
@@ -67,3 +69,26 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# preexec() {
+# 	timer=$(date+%s.%N)
+# }
+#
+# precmd() {
+# 	if [ -n "$timer" ]; then
+# 		now=$(date+%s.%N)
+# 		elapsed=$(echo "$now - $timer" | bc)
+# 		timer_show=$(printf "%.2f" $elapsed)
+# 		echo "Exe time: ${timer_show}s"
+# 		unset timer
+# 	fi
+# }
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH="$HOME/.fly/bin:$PATH"
+
+# bun completions
+[ -s "/home/jeff/.bun/_bun" ] && source "/home/jeff/.bun/_bun"

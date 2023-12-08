@@ -1,4 +1,4 @@
---  This function gets run when an LSP connects to a particular buffer.
+--  This function gets run when an LSP connects to a particular buffer.lspi
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
@@ -70,9 +70,6 @@ local servers = {
           enable = true,
         },
       },
-      diagnostics = {
-        disabled = { "unresolved-proc-macro" },
-      },
     },
   },
   intelephense = {
@@ -133,7 +130,7 @@ local servers = {
   tsserver = {
     settings = {
       filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
-        "vue" },
+        "vue", "astro" },
       formatOnType = true
     }
   },
@@ -143,14 +140,16 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  astro = {},
   -- ols = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Setup mason so it can manage external tooling
+-- require('fidget').setup({})
 
+-- Setup mason so it can manage external tooling
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -171,14 +170,6 @@ mason_lspconfig.setup_handlers {
 mason_lspconfig.rust_analyzer = {
   capabilities = capabilities,
   on_attach = on_attach,
-}
-
-local rt = require 'rust-tools'
-
-rt.config.setup {
-  server = {
-    on_attach = on_attach,
-  }
 }
 
 return {}

@@ -23,10 +23,9 @@ URxvt*tabbedex.new-button: false
 ! font
 ! URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
 ! URxvt*font: xft:Inconsolata Nerd Font Complete Mono:style=Medium:size=14:pixelsize=16:antialias=true
-URxvt*font: xft:Dank Mono:style=Regular:size=22:pixelsize=25:antialias=true
-! URxvt*font: xft:JetBrainsMono Nerd Font:style=Regular:size=14:pixelsize=16:antialias=true
-! URxvt*font: xft:SF Mono NF:style=Regular:size=14:pixelsize=16:antialias=true
-! URxvt*font: xft:Consolas ligaturized v2:style=Regular:size=14:pixelsize=16:antialias=true
+! URxvt*font: xft:Dank Mono:style=Regular:size=14:pixelsize=16:antialias=true
+URxvt*font: xft:Berkeley Mono:style=Regular:size=14:pixelsize=16:antialias=true
+
 ! URxvt*letterSpace: 0
 
 ! border

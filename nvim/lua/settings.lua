@@ -11,4 +11,7 @@ vim.api.nvim_exec([[
   autocmd FileType * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 ]], false)
 
+-- copilot
+vim.g.copilot_no_tab_map = true
+
 return {}
