@@ -136,6 +136,7 @@ local servers = {
       formatOnType = true
     }
   },
+  vuels = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -146,6 +147,8 @@ local servers = {
   bashls = {},
   marksman = {},
   jsonls = {},
+  svelte = {},
+  sqlls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

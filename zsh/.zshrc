@@ -86,6 +86,14 @@ esac
 # 	fi
 # }
 
+fnd() {
+	fd "$@" | fzf | xargs -r nvim
+}
+
+sfnd() {
+	fd "$@" | fzf | xargs -r -I {} sudo SUDO_EDITOR="nvim" sudoedit {}
+}
+
 export PATH="$HOME/.fly/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
