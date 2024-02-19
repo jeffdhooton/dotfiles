@@ -57,6 +57,8 @@ bindkey -r '^1'
 bindkey -r '^g'
 bindkey -s '^g' clear-screen
 
+export EDITOR=nvim
+export XDG_CURRENT_DESKTOP=i3
 export PATH="/home/jeff/.cargo/bin:$PATH"
 export PATH="$HOME/go:$PATH"
 export BUN_INSTALL="$HOME/.bun"
@@ -84,11 +86,11 @@ esac
 # 	fi
 # }
 
+export PATH="$HOME/.fly/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
-export PATH="$HOME/.fly/bin:$PATH"
 
 # bun completions
-[ -s "/home/jeff/.bun/_bun" ] && source "/home/jeff/.bun/_bun"
+# [ -s "/home/jeff/.bun/_bun" ] && source "/home/jeff/.bun/_bun"

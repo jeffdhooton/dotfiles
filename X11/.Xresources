@@ -1,5 +1,6 @@
 ! term name
-Urxvt.termName: rxvt-256color
+! Urxvt.termName: rxvt-256color
+Urxvt.termName: rxvt-unicode
 
 ! tabs
 URxvt*perl-ext-common: default,tabbedex
@@ -21,10 +22,9 @@ URxvt*tabbedex.transparent: true
 URxvt*tabbedex.new-button: false
 
 ! font
-! URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
-! URxvt*font: xft:Inconsolata Nerd Font Complete Mono:style=Medium:size=14:pixelsize=16:antialias=true
 ! URxvt*font: xft:Dank Mono:style=Regular:size=14:pixelsize=16:antialias=true
-URxvt*font: xft:Berkeley Mono:style=Regular:size=14:pixelsize=16:antialias=true
+! URxvt*font: xft:Berkeley Mono:style=Regular:size=16:pixelsize=16:antialias=true
+URxvt*font: xft:Berkeley Mono:style=Regular:size=16:pixelsize=16:antialias=true,xft:Symbols Nerd Font:style=Regular:size=16
 
 ! URxvt*letterSpace: 0
 

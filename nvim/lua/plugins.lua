@@ -36,6 +36,32 @@ require('lazy').setup({
   },
 
   {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "theutz/neotest-pest"
+    },
+    config = function()
+      require("neotest").setup({
+        output = {
+          open = function()
+            vim.cmd("botright vsplit")
+
+            return require('neotest.output').get_buffer()
+          end,
+        },
+        adapters = {
+          require('neotest-pest')({
+            pest_cmd = function()
+              return "vendor/bin/pest"
+            end
+          })
+        }
+      })
+    end
+  },
+
+  {
     'sbdchd/neoformat',
     config = function()
       vim.api.nvim_exec([[
@@ -106,7 +132,7 @@ require('lazy').setup({
         desc = "Laravel Application Routes",
       },
     },
-    event = { "VeryLazy" },
+    -- event = { "VeryLazy" },
     config = function()
       require("laravel").setup()
       require("telescope").load_extension "laravel"
@@ -157,17 +183,6 @@ require('lazy').setup({
           'lsp_progress',
         },
       },
-    },
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
     },
   },
 
@@ -222,6 +237,35 @@ require('lazy').setup({
   },
 
   { 'lvimuser/lsp-inlayhints.nvim', opts = {} },
+
+  {
+    "nomnivore/ollama.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+    keys = {
+      -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
+      {
+        "<leader>oo",
+        ":<c-u>lua require('ollama').prompt()<cr>",
+        desc = "ollama prompt",
+        mode = { "n", "v" },
+      },
+
+      -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
+      {
+        "<leader>oG",
+        ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+        desc = "ollama Generate Code",
+        mode = { "n", "v" },
+      },
+    },
+
+    opts = {
+      model = "mistral",
+    },
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.

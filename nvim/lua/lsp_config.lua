@@ -51,7 +51,7 @@ local servers = {
   clangd = {},
   gopls = {},
   zls = {},
-  -- pyright = {},
+  pyright = {},
   rust_analyzer = {
     settings = {
       ["rust-analyzer"] = {
@@ -72,6 +72,7 @@ local servers = {
       },
     },
   },
+  psalm = {},
   intelephense = {
     settings = {
       stubs = {
@@ -96,6 +97,7 @@ local servers = {
         "mysql",
         "mysqli",
         "password",
+        "pest",
         "pcntl",
         "pcre",
         "PDO",
@@ -141,7 +143,9 @@ local servers = {
     },
   },
   astro = {},
-  -- ols = {},
+  bashls = {},
+  marksman = {},
+  jsonls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -170,6 +174,10 @@ mason_lspconfig.setup_handlers {
 mason_lspconfig.rust_analyzer = {
   capabilities = capabilities,
   on_attach = on_attach,
+}
+
+mason_lspconfig.phpactor = {
+  on_attach = on_attach
 }
 
 return {}
