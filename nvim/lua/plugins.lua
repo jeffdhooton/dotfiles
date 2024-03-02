@@ -123,6 +123,8 @@ require('lazy').setup({
     end
   },
 
+  { 'phpactor/phpactor' },
+
   -- {
   --   "adalessa/laravel.nvim",
   --   dependencies = {

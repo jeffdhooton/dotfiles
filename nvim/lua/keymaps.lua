@@ -56,25 +56,32 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagn
 -- Neotest --
 --
 -- Test single method
-vim.keymap.set('n', '<leader>tm', ':lua require("neotest").run.run()<CR>',
-  { noremap = true, desc = "Test single method", silent = true })
--- Test single file
-vim.keymap.set('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
-  { desc = "Test single file", silent = true, noremap = true })
--- Test whole suite
-vim.keymap.set('n', '<leader>td', ':lua require("neotest").run.run({ suite = true })<CR>',
-  { desc = "Test whole suite", silent = true, noremap = true })
--- STOP test
-vim.keymap.set('n', '<leader>ts', ':lua require("neotest").run.stop()<CR>',
-  { desc = "Stop test", silent = true, noremap = true })
--- Open testing output
-vim.keymap.set('n', '<leader>to', ':lua require("neotest").output.open()<CR>',
-  { desc = "Neotest output", silent = true, noremap = true })
--- Open testing output - ENTER
-vim.keymap.set('n', '<leader>t0', ':lua require("neotest").output.open({ enter = true })<CR>',
-  { desc = "Neotest output (enter)", silent = true, noremap = true })
--- Open testing summary
-vim.keymap.set('n', '<leader>ti', ':lua require("neotest").summary.toggle()<CR>',
-  { desc = "Neotest summary", silent = true, noremap = true })
+-- vim.keymap.set('n', '<leader>tm', ':lua require("neotest").run.run()<CR>',
+--   { noremap = true, desc = "Test single method", silent = true })
+-- -- Test single file
+-- vim.keymap.set('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+--   { desc = "Test single file", silent = true, noremap = true })
+-- -- Test whole suite
+-- vim.keymap.set('n', '<leader>td', ':lua require("neotest").run.run({ suite = true })<CR>',
+--   { desc = "Test whole suite", silent = true, noremap = true })
+-- -- STOP test
+-- vim.keymap.set('n', '<leader>ts', ':lua require("neotest").run.stop()<CR>',
+--   { desc = "Stop test", silent = true, noremap = true })
+-- -- Open testing output
+-- vim.keymap.set('n', '<leader>to', ':lua require("neotest").output.open()<CR>',
+--   { desc = "Neotest output", silent = true, noremap = true })
+-- -- Open testing output - ENTER
+-- vim.keymap.set('n', '<leader>t0', ':lua require("neotest").output.open({ enter = true })<CR>',
+--   { desc = "Neotest output (enter)", silent = true, noremap = true })
+-- -- Open testing summary
+-- vim.keymap.set('n', '<leader>ti', ':lua require("neotest").summary.toggle()<CR>',
+--   { desc = "Neotest summary", silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>tv', ':vsplit<CR>',
+  { desc = "[V]ertical split", silent = true, noremap = true })
+vim.keymap.set('n', '<leader>th', ':split<CR>',
+  { desc = "[H]orizontal split", silent = true, noremap = true })
+vim.keymap.set('n', '<leader>td', ':bd<CR>',
+  { desc = "Buffer [d]elete", silent = true, noremap = true })
 
 return {}

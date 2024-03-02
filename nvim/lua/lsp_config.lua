@@ -72,7 +72,8 @@ local servers = {
       },
     },
   },
-  phpactor = {},
+  phpactor = {
+  },
   intelephense = {
     settings = {
       stubs = {
@@ -158,13 +159,13 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup mason so it can manage external tooling
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+local lspconfig = require 'mason-lspconfig'
 
-mason_lspconfig.setup {
+lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
+lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
@@ -174,7 +175,12 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-mason_lspconfig.rust_analyzer = {
+lspconfig.rust_analyzer = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+lspconfig.phpactor = {
   capabilities = capabilities,
   on_attach = on_attach,
 }
