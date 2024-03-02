@@ -78,41 +78,82 @@ URxvt*saveLines: 5000
 ! *.color15:      #c5c8c6
 
 ! special
-URxvt.background: #1E1E2E
-URxvt.foreground: #CDD6F4
-URxvt.cursorColor: #F5E0DC
+! URxvt.background: #1E1E2E
+! URxvt.foreground: #CDD6F4
+! URxvt.cursorColor: #F5E0DC
+!
+! ! black
+! URxvt.color0: #45475A
+! URxvt.color8: #585B70
+!
+! ! red
+! URxvt.color1: #F38BA8
+! URxvt.color9: #F38BA8
+!
+! ! green
+! URxvt.color2: #A6E3A1
+! URxvt.color10: #A6E3A1
+!
+! ! yellow
+! URxvt.color3: #F9E2AF
+! URxvt.color11: #F9E2AF
+!
+! ! blue
+! URxvt.color4: #89B4FA
+! URxvt.color12: #89B4FA
+!
+! ! magenta
+! URxvt.color5: #F5C2E7
+! URxvt.color13: #F5C2E7
+!
+! ! cyan
+! URxvt.color6: #94E2D5
+! URxvt.color14: #94E2D5
+!
+! ! white
+! URxvt.color7: #BAC2DE
+! URxvt.color15: #A6ADC8
+!
+
+! *.internalBorder: 15
+*.scrollBar: False
+
+! special
+*.foreground:   #d6deeb
+*.background:   #011627
+*.cursorColor:  #d6deeb
 
 ! black
-URxvt.color0: #45475A
-URxvt.color8: #585B70
+*.color0:       #011627
+*.color8:       #575656
 
 ! red
-URxvt.color1: #F38BA8
-URxvt.color9: #F38BA8
+*.color1:       #ef5350
+*.color9:       #ef5350
 
 ! green
-URxvt.color2: #A6E3A1
-URxvt.color10: #A6E3A1
+*.color2:       #22da6e
+*.color10:      #22da6e
 
 ! yellow
-URxvt.color3: #F9E2AF
-URxvt.color11: #F9E2AF
+*.color3:       #addb67
+*.color11:      #ffeb95
 
 ! blue
-URxvt.color4: #89B4FA
-URxvt.color12: #89B4FA
+*.color4:       #82aaff
+*.color12:      #82aaff
 
 ! magenta
-URxvt.color5: #F5C2E7
-URxvt.color13: #F5C2E7
+*.color5:       #c792ea
+*.color13:      #c792ea
 
 ! cyan
-URxvt.color6: #94E2D5
-URxvt.color14: #94E2D5
+*.color6:       #21c7a8
+*.color14:      #7fdbca
 
 ! white
-URxvt.color7: #BAC2DE
-URxvt.color15: #A6ADC8
+*.color7:       #ffffff
+*.color15:      #ffffff
 
 !! URxvt Appearance
 URxvt.letterSpace: 0

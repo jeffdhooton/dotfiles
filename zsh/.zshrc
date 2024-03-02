@@ -72,26 +72,20 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# preexec() {
-# 	timer=$(date+%s.%N)
-# }
-#
-# precmd() {
-# 	if [ -n "$timer" ]; then
-# 		now=$(date+%s.%N)
-# 		elapsed=$(echo "$now - $timer" | bc)
-# 		timer_show=$(printf "%.2f" $elapsed)
-# 		echo "Exe time: ${timer_show}s"
-# 		unset timer
-# 	fi
-# }
-
 fnd() {
 	fd "$@" | fzf | xargs -r nvim
 }
 
 sfnd() {
 	fd "$@" | fzf | xargs -r -I {} sudo SUDO_EDITOR="nvim" sudoedit {}
+}
+
+tk() {
+	tmux kill-session -t $@
+}
+
+tat() {
+	tmux attach-session -t $@
 }
 
 export PATH="$HOME/.fly/bin:$PATH"
@@ -101,4 +95,4 @@ eval "$(pyenv virtualenv-init -)"
 
 
 # bun completions
-# [ -s "/home/jeff/.bun/_bun" ] && source "/home/jeff/.bun/_bun"
+[ -s "/home/jeff/.bun/_bun" ] && source "/home/jeff/.bun/_bun"

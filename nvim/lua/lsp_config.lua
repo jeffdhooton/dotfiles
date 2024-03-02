@@ -72,7 +72,7 @@ local servers = {
       },
     },
   },
-  psalm = {},
+  phpactor = {},
   intelephense = {
     settings = {
       stubs = {
@@ -177,10 +177,6 @@ mason_lspconfig.setup_handlers {
 mason_lspconfig.rust_analyzer = {
   capabilities = capabilities,
   on_attach = on_attach,
-}
-
-mason_lspconfig.phpactor = {
-  on_attach = on_attach
 }
 
 return {}

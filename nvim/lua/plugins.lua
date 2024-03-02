@@ -99,45 +99,57 @@ require('lazy').setup({
     },
   },
 
+  -- Catppuccin
+  --
+  -- {
+  --   'catppuccin/nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('catppuccin').setup({
+  --       colorsheme = 'mocha'
+  --     })
+  --     -- vim.cmd.colorscheme 'catppuccin'
+  --   end
+  -- },
+
+  -- Night Owl
   {
-    'catppuccin/nvim',
+    'oxfist/night-owl.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('catppuccin').setup({
-        colorsheme = 'mocha'
-      })
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme("night-owl")
     end
   },
 
-  {
-    "adalessa/laravel.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-dotenv",
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-    keys = {
-      { "<leader>la", ":Laravel artisan<cr>" },
-      { "<leader>lr", ":Laravel routes<cr>" },
-      { "<leader>lm", ":Laravel related<cr>" },
-      {
-        "<leader>lt",
-        function()
-          require("laravel.tinker").send_to_tinker()
-        end,
-        mode = "v",
-        desc = "Laravel Application Routes",
-      },
-    },
-    -- event = { "VeryLazy" },
-    config = function()
-      require("laravel").setup()
-      require("telescope").load_extension "laravel"
-    end,
-  },
+  -- {
+  --   "adalessa/laravel.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --     "tpope/vim-dotenv",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+  --   keys = {
+  --     { "<leader>la", ":Laravel artisan<cr>" },
+  --     { "<leader>lr", ":Laravel routes<cr>" },
+  --     { "<leader>lm", ":Laravel related<cr>" },
+  --     {
+  --       "<leader>lt",
+  --       function()
+  --         require("laravel.tinker").send_to_tinker()
+  --       end,
+  --       mode = "v",
+  --       desc = "Laravel Application Routes",
+  --     },
+  --   },
+  --   -- event = { "VeryLazy" },
+  --   config = function()
+  --     require("laravel").setup()
+  --     require("telescope").load_extension "laravel"
+  --   end,
+  -- },
 
   -- {
   --   'Alexis12119/nightly.nvim',
@@ -162,7 +174,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'catppuccin',
+        theme = 'night-owl',
       }
     }
   },
@@ -173,8 +185,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'catppuccin',
+        icons_enabled = false,
+        theme = 'night-owl',
         component_separators = '|',
         section_separators = '',
       },
@@ -193,20 +205,20 @@ require('lazy').setup({
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Harpoon
-  -- {
-  --   'theprimeagen/harpoon',
-  --   config = function()
-  --     require('harpoon').setup({
-  --       settings = {
-  --         save_on_toggle = true,
-  --         save_on_change = true,
-  --       },
-  --       menu = {
-  --         width = vim.api.nvim_win_get_width(0) - 4,
-  --       },
-  --     })
-  --   end
-  -- },
+  {
+    'theprimeagen/harpoon',
+    config = function()
+      require('harpoon').setup({
+        settings = {
+          save_on_toggle = true,
+          save_on_change = true,
+        },
+        menu = {
+          width = vim.api.nvim_win_get_width(0) - 4,
+        },
+      })
+    end
+  },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
