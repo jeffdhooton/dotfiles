@@ -4,7 +4,6 @@
 -- This is pretty useful if you're trying to do something a bit
 -- more complicated or just exploring random snippet ideas
 require("luasnip.session.snippet_collection").clear_snippets "go"
-require("luasnip.session.snippet_collection").clear_snippets "ts"
 
 local ls = require "luasnip"
 
@@ -181,3 +180,31 @@ if <err_same> != nil {
     )
   ),
 })
+
+-- ls.add_snippets(
+--   "go",
+--   make {
+--     main = {
+--       t { "func main() {", "\t" },
+--       i(0),
+--       t { "", "}" },
+--     },
+--
+--     ef = {
+--       i(1, { "val" }),
+--       t ", err := ",
+--       i(2, { "f" }),
+--       t "(",
+--       i(3),
+--       t ")",
+--       i(0),
+--     },
+--
+--     -- TODO: Fix this up so that it actually uses the tree sitter thing
+--     ie = { "if err != nil {", "\treturn err", i(0), "}" },
+--   }
+-- )
+
+-- ls.add_snippets("go", {
+--   s("f", fmt("func {}({}) {} {{\n\t{}\n}}", { i(1, "name"), i(2), i(3), i(0) })),
+-- })

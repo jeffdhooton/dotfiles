@@ -130,12 +130,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $terms "1: terms"
-set $web "2: web"
-set $db "3: db"
-set $file_manager "4: files"
-set $mail "5: mail"
-set $documents "6: documents"
+# set $terms "1: terms"
+# set $web "2: web"
+# set $db "3: db"
+# set $file_manager "4: files"
+# set $mail "5: mail"
+# set $documents "6: documents"
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -252,7 +252,7 @@ client.unfocused #333333 #222222 #888888 #292d2e #222222
 client.urgent $red1 $red1 $white2 $red1 $red1
 client.placeholder #000000 #0c0c0c $white2 #000000 #0c0c0c
 
-for_window [class="URxvt*"] border pixel 5 
+for_window [class="URxvt*"] border pixel 3 
 
 # screenshots
 bindsym --release $mod+semicolon exec "maim -s ~/Pictures/screenshots/screenshot_$(date +%F_%H-%M-%S).png"
@@ -260,8 +260,8 @@ bindsym --release $mod+semicolon exec "maim -s ~/Pictures/screenshots/screenshot
 # scratchpad term
 for_window [title="scratchpad"] floating enable
 for_window [title="scratchpad"] move scratchpad
-for_window [title="scratchpad"] resize set 1000 800
-for_window [title="scratchpad"] move absolute 100 100
+for_window [title="scratchpad"] resize set 1000 1000
+for_window [title="scratchpad"] move absolute 80 80
 
 # create
 bindsym $mod+Shift+Return exec --no-startup-id i3-sensible-terminal -title scratchpad -e 'tmux' && sleep 0.1 && i3-msg '[title="scratchpad"] scratchpad show'
